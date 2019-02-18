@@ -5,37 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Normal scroll</title>
     <style>
+        .innerDiv {
 
-        .innerDiv{
-
-            width:400px;
-            height:600px;
-            background-image: linear-gradient(coral, yellow);
+            width: 400px;
+            height: 800px;
+            background-image: linear-gradient(coral, blue, yellow);
 
 
         }
 
-        .outerDiv{
+        .outerDiv {
 
-            width:400px;
-            height:300px;
+            width: 400px;
+            height: 300px;
             overflow: scroll;
 
         }
-
     </style>
 </head>
 
 <body>
-   <div class="outerDiv">
-       <div class="innerDiv">
+    <div class="outerDiv">
+        <div class="innerDiv">
 
 
-       </div>
+        </div>
 
-   </div>
+    </div>
 
 
-    <script></script>
+    <script>
+        let scrollDistance = document.querySelector(".outerDiv").scrollHeight- document.querySelector(".outerDiv").clientHeight;
+        console.log("scrollDistance",scrollDistance);
+
+        document.querySelector(".outerDiv").addEventListener("scroll", scrollFunc);
+        function scrollFunc(evt) {
+            console.log("Scrolltop",evt.target.scrollTop);
+            console.log("Scrolltop divided by scrolle distance",evt.target.scrollTop/scrollDistance);
+
+
+        }
+    </script>
 </body>
 </html>
